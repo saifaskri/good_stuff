@@ -7,9 +7,8 @@
 ** you must filter all your input field
 ** if the entered informations are present then will give True
 */ 
-function check_for_duplicate_entry($conn,$tabel,$column,$datas){
+function checkInDb($conn,$tabel,$column,$datas){
 $query="SELECT * FROM ".$tabel." WHERE ".$column."=:data; ";
-$data=filter_var($datas,FILTER_SANITIZE_EMAIL);
 $get=$conn->prepare($query);
 $get->bindParam(":data",$data);
 $get->execute();
@@ -40,24 +39,16 @@ $get=$conn->prepare($query);
 $get->execute();
 $row_num=$get->rowCount();
 $data=$get->fetchALL(PDO::FETCH_ASSOC);
-
 echo'<table border="1">';
-
 for ($i=0;$i<count($column_table_name);$i++){
 echo '<th>'. $column_table_name[$i].'</th>'; }
-
 for ($i=0;$i<$row_num;$i++){
-
 echo'<tr>';
 for ($j=0;$j<count($column_table_name_in_database);$j++){
     echo '<td>'.$data[$i][$column_table_name_in_database[$j]].'</td>';}       
-
     echo  $add_somthing_to_the_last_table_column;
-
-
 echo'</tr>';}
-
 echo '</table>';
 }
-
+//===========================================================================
 ?>
