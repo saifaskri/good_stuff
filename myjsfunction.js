@@ -62,6 +62,7 @@ function write_and_paste(clavier,screen){
 // *****accept only extention  that you choose but defualt is "JPG","GIF","PNG","JPEG";                       *
 // *****max default size of uploaded file is 10Mb = 10485760 Octet you can edit it but value must be in Octet * 
 // *****all Selectore must be only >>>>>>>id                                                                  *
+//need id of upload input and id of an img tag to use her src attribute                                       *
 // ************************************************************************************************************
 function viewImageInScreen(image_up,img_screen,allow_exts=["JPG","GIF","PNG","JPEG"],max_photo_upload_size=10485760){
      allow_ext = allow_exts.map(name => name.toUpperCase());
